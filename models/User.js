@@ -1,23 +1,23 @@
 import mongoose from "mongoose";
 
-const UserSchema = new mongoose.schema(
+const UserSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      require: true,
+      required: true,
       min: 2,
       max: 100,
     },
     email: {
-      type: string,
-      require: true,
+      type: String,
+      required: true,
       max: 50,
       unique: true,
     },
     password: {
-      type: string,
+      type: String,
+      required: true,
       min: 5,
-      require: true,
     },
     city: String,
     state: String,
@@ -26,7 +26,7 @@ const UserSchema = new mongoose.schema(
     phoneNumber: String,
     transactions: Array,
     role: {
-      type: string,
+      type: String,
       enum: ["user", "admin", "superadmin"],
       default: "admin",
     },
@@ -35,5 +35,4 @@ const UserSchema = new mongoose.schema(
 );
 
 const User = mongoose.model("User", UserSchema);
-
 export default User;
