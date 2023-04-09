@@ -11,8 +11,11 @@ import managementRoutes from "./routes/management.js";
 import salesRoutes from "./routes/sales.js";
 
 // importar datos de usuarios //solo se tiene que hacer 1 vez
-  import User from "./models/User.js"
-  import {dataUser } from "./data/index.js"
+import User from "./models/User.js";
+import Product from "./models/Product.js";
+import ProductStat from "./models/ProductStat.js";
+import { dataUser, dataProduct, dataProductStat } from "./data/index.js";
+
 /* CONFIGURATION */
 dotenv.config();
 const app = express();
@@ -30,12 +33,11 @@ app.use("/general", generalRoutes);
 app.use("/management", managementRoutes);
 app.use("/sales", salesRoutes);
 
-
 //MONGOOSE SET UP
-console.log('aqui va el puerto')
-console.log(process.env.PORT)
+console.log("aqui va el puerto");
+console.log(process.env.PORT);
 
-mongoose.set('strictQuery', true); // Opción 1
+mongoose.set("strictQuery", true); // Opción 1
 
 const PORT = process.env.PORT || 9000;
 mongoose
@@ -45,8 +47,12 @@ mongoose
   })
   .then(() => {
     app.listen(PORT, () => console.log(`Server Port ${PORT}`));
-    
-     /* correr si borro la base de datos */
+
+    /* solo añadir datos una vez */
+    //Product.insertMany(dataProduct);
+    //ProductStat.insertMany(dataProductStat);
     //User.insertMany(dataUser);
   })
-  .catch((error) => console.log(`${error} a qui se ve el error did not conect`));
+  .catch((error) =>
+    console.log(`${error} a qui se ve el error did not conect`)
+  );

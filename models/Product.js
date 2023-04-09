@@ -7,10 +7,10 @@ const ProductSchema = new mongoose.Schema(
     description: String,
     category: String,
     rating: Number,
-    suplply: Number,
+    supply: Number,
   },
   { timestamps: true }
 );
 
 const Product = mongoose.model("Product", ProductSchema);
-export default User;
+export default Product;
