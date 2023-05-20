@@ -2,13 +2,14 @@ import mongoose from "mongoose";
 
 const TransactionSchema = new mongoose.Schema(
   {
-    affiliateld: Boolean,
+    userId: String,
     cost: String,
-    products: Array,
+    products: {
+      type: [mongoose.Types.ObjectId],
+      of: Number,
+    },
   },
-  {
-    timestamps: true,
-  }
+  { timestamps: true }
 );
 
 const Transaction = mongoose.model("Transaction", TransactionSchema);

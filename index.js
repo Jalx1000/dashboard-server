@@ -14,7 +14,8 @@ import salesRoutes from "./routes/sales.js";
 import User from "./models/User.js";
 import Product from "./models/Product.js";
 import ProductStat from "./models/ProductStat.js";
-import { dataUser, dataProduct, dataProductStat } from "./data/index.js";
+import Transaction from "./models/Transaction.js";
+import { dataUser, dataProduct, dataProductStat, dataTransaction } from "./data/index.js";
 
 /* CONFIGURATION */
 dotenv.config();
@@ -32,6 +33,7 @@ app.use("/client", clientRoutes);
 app.use("/general", generalRoutes);
 app.use("/management", managementRoutes);
 app.use("/sales", salesRoutes);
+// app.use("/transaction". Transaction);
 
 //MONGOOSE SET UP
 console.log("aqui va el puerto");
@@ -51,7 +53,8 @@ mongoose
     /* solo añadir datos una vez */
     //Product.insertMany(dataProduct);
     //ProductStat.insertMany(dataProductStat);
-    //User.insertMany(dataUser);
+    // User.insertMany(dataUser);
+    // Transaction.insertMany(dataTransaction); 
   })
   .catch((error) =>
     console.log(`${error} a qui se ve el error did not conect`)
