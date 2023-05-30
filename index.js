@@ -16,7 +16,13 @@ import Product from "./models/Product.js";
 import ProductStat from "./models/ProductStat.js";
 import Transaction from "./models/Transaction.js";
 import OverallStat from "./models/OverallStat.js";
-import { dataUser, dataProduct, dataProductStat, dataTransaction, dataOverallStat } from "./data/index.js";
+import {
+  dataUser,
+  dataProduct,
+  dataProductStat,
+  dataTransaction,
+  dataOverallStat,
+} from "./data/index.js";
 
 /* CONFIGURATION */
 dotenv.config();
@@ -55,8 +61,8 @@ mongoose
     //Product.insertMany(dataProduct);
     //ProductStat.insertMany(dataProductStat);
     // User.insertMany(dataUser);
-    // Transaction.insertMany(dataTransaction); 
-    // OverallStat.insertMany(dataOverallStat); 
+    // Transaction.insertMany(dataTransaction);
+    // OverallStat.insertMany(dataOverallStat);
   })
   .catch((error) =>
     console.log(`${error} a qui se ve el error did not conect`)
