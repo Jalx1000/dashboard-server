@@ -4,4 +4,4 @@ npm run dev
 # env
 
 PORT=<"port">
-MONGO_URL=<"database url">
+MONGO_URL=<"url">
